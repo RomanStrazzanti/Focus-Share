@@ -7,7 +7,6 @@ exports.getSettings = async (req, res) => {
     .from('user_settings')
     .select('*')
     .eq('user_id', user_id)
-    .single();
 
   if (error) return res.status(404).json({ error: error.message });
   res.json(data);
