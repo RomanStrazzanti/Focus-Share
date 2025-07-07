@@ -1,8 +1,11 @@
+// routes/forumPosts.js
 const express = require('express');
 const router = express.Router();
+const authenticate = require('../middlewares/authenticate');
 const { getAllPosts, createPost } = require('../controllers/forumPostController');
 
-router.get('/', getAllPosts);
-router.post('/', createPost); // Le body doit contenir author_id et content
+// ⚠️ routes protégées
+router.get('/', authenticate, getAllPosts);
+router.post('/', authenticate, createPost); // author_id sera injecté depuis req.user.id
 
 module.exports = router;
