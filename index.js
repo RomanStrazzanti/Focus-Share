@@ -20,6 +20,7 @@ app.use('/api/profiles', require('./routes/profiles'));
 app.use('/api/forum-posts', require('./routes/forumPosts'));
 app.use('/api/user-settings', require('./routes/userSettings'));
 app.use('/api/private-messages', require('./routes/privateMessages'));
+app.use('/api/tasks', require('./routes/tasks'));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(port, () => {
